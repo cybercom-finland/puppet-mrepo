@@ -6,5 +6,4 @@ class mrepo::repos (
 
   Class['mrepo::selinux']
   -> Class['mrepo::repos']
-  -> Anchor['mrepo::end']
 }
