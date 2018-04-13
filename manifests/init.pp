@@ -145,6 +145,7 @@ class mrepo (
   $selinux_context                       = $::mrepo::params::selinux_context,
   $service_enable                        = $::mrepo::params::service_enable,
   $service_manage                        = $::mrepo::params::service_manage,
+  $purge_configuration                   = false,
 ) inherits ::mrepo::params {
 
   if $rhn {

@@ -23,6 +23,7 @@ class mrepo::package {
   $source = $mrepo::source
   $proto  = $mrepo::git_proto
   $ensure = $mrepo::ensure_src
+  $purge  = $mrepo::purge_configuration
 
   case $source {
     'git': {
@@ -72,10 +73,12 @@ class mrepo::package {
   }
 
   file { '/etc/mrepo.conf.d':
-    ensure => directory,
-    owner  => $user,
-    group  => $group,
-    mode   => '0755',
+    ensure  => directory,
+    owner   => $user,
+    group   => $group,
+    mode    => '0755',
+    purge   => $purge,
+    recurse => true,
   }
 
   file { '/var/cache/mrepo':
